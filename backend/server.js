@@ -40,7 +40,7 @@ const app = express();
 // Middleware
 app.use(helmet());
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173' || 'https://zl21bvhq-5173.inc1.devtunnels.ms/',
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173'|| 'https://navaspurthi.vercel.app' ,
   credentials: true
 }));
 app.use(morgan('dev'));
