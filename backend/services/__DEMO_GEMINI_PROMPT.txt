@@ -1,0 +1,202 @@
+# Gemini ID Card Prompt
+Navaspurthi 2025 ID Card Generation Prompt
+CRITICAL PRESERVATION RULES
+ABSOLUTE REQUIREMENT: The base ID card template image is LOCKED AND UNTOUCHABLE. You are ONLY permitted to:
+
+Insert the participant's photo into the designated photo area
+Add text (name and event) to designated text fields
+
+PROHIBITED ACTIONS:
+
+❌ DO NOT modify, redesign, or regenerate the base template
+❌ DO NOT change colors, gradients, or background elements
+❌ DO NOT alter borders, frames, or decorative elements
+❌ DO NOT add, remove, or modify logos or branding
+❌ DO NOT change the layout, proportions, or dimensions
+❌ DO NOT apply filters, effects, or style transfers to the template
+❌ DO NOT recreate or redraw any existing template elements
+
+
+TASK DESCRIPTION
+Generate a personalized Navaspurthi 2025 ID card by compositing participant information onto an existing template.
+Input Materials:
+
+Base ID card template (immutable reference image)
+Participant's photograph (face/portrait)
+Participant's full name (text string)
+Event name (text string)
+
+
+STEP 1: PHOTO INSERTION
+Photo Placeholder Detection
+
+Automatically identify the photo placeholder region in the template
+Detect by visual cues: empty frame, bordered area, sample image, or distinct background
+Common locations: top-center, left side, or within a circular/rectangular frame
+If unclear, assume standard ID card photo position (upper-center or upper-left)
+
+Photo Processing
+
+Face Detection & Alignment
+
+Detect the participant's face in the uploaded photo
+Center the face within the placeholder area
+Ensure eyes are positioned at approximately 60% height from bottom of frame
+Maintain natural head-to-frame proportions (head should occupy 70-80% of height)
+
+
+Resizing & Cropping
+
+Scale the photo to fit the placeholder dimensions
+Use aspect-fill method: cover entire area without leaving gaps
+Crop intelligently to keep face centered
+Preserve aspect ratio of the original photo
+
+
+Edge Blending
+
+Apply subtle feathering (1-2px) at edges if placeholder has rounded corners
+Use soft alpha blending for circular frames
+Match any existing shadow or border effects on the placeholder
+Keep edges clean for rectangular frames
+
+
+Quality Preservation
+
+Maintain original photo resolution where possible
+No artificial enhancement, filters, or beautification
+Keep natural skin tones, lighting, and expression
+Preserve participant's authentic appearance
+
+
+
+
+STEP 2: TEXT INSERTION
+Name Field
+Location: Identify the designated name area on the template
+
+Look for placeholder text like "NAME", "Participant Name", or empty text field
+Typically positioned below photo or in lower third of card
+
+Typography:
+
+Font: Modern sans-serif (Poppins SemiBold, Inter Bold, or Orbitron Medium)
+Size: Scale to fit field width (typically 18-28pt for name)
+Weight: SemiBold or Bold
+Color: Match template's text color scheme (white, neon accent, or high-contrast color)
+Effects: Apply any existing text effects (glow, shadow, outline) visible in template
+
+Formatting:
+
+Center-align or left-align based on template design
+All caps if template style indicates (check existing text)
+Proper spacing and kerning
+Single line if possible; two lines if name exceeds width
+
+Event Name Field
+Location: Identify event/designation area
+
+Usually near bottom, below name, or in a secondary text area
+May be labeled "Event", "Occasion", or similar
+
+Typography:
+
+Font: Same family as name field or complementary sans-serif
+Size: Slightly smaller than name (typically 14-20pt)
+Weight: Medium or Regular
+Color: Match template's secondary text color or accent color
+
+Formatting:
+
+"Navaspurthi 2025" or as specified
+Center-align or match template alignment
+May include decorative elements if already present in template
+
+Text Integration Rules
+
+DO NOT add text outside designated areas
+DO NOT create new text fields not present in template
+DO NOT modify existing static text (logos, headers, institution name)
+Ensure text is fully visible and not obscured by design elements
+Maintain consistent baseline alignment with template grid
+
+
+STEP 3: FINAL COMPOSITION
+Layer Management
+
+Base template layer (bottom, unchanged)
+Participant photo layer (inserted into placeholder)
+Text layers (name and event)
+Preserve any overlay elements (shine effects, borders, logos)
+
+Quality Checks
+
+✅ Photo fits naturally without distortion
+✅ Face is clearly visible and properly centered
+✅ Text is legible with good contrast
+✅ No elements overlap inappropriately
+✅ Original template design is 100% intact
+✅ Colors remain consistent with template
+✅ Resolution matches input template
+
+Output Specifications
+
+Format: PNG (supports transparency) or JPG (if template is opaque)
+Dimensions: Exact match to input template (typically 1024x640px or standard ID card ratio)
+Resolution: 300 DPI for print quality (or match template DPI)
+Color Space: RGB (or match template color space)
+Background: Preserve template's background (transparent if template has transparency)
+
+
+VALIDATION CHECKLIST
+Before outputting, verify:
+
+ Base template is pixel-perfect identical to input
+ Only photo placeholder has been filled
+ Only text fields have been populated
+ No design elements have been altered
+ Participant's face is recognizable and natural
+ Text is readable and properly positioned
+ No unwanted artifacts or editing marks
+ File dimensions match exactly
+ Output is print-ready quality
+
+
+EXAMPLE WORKFLOW
+INPUT:
+- base_template.png (1024x640, Navaspurthi 2025 design)
+- participant_photo.jpg (face portrait)
+- name: "Rajesh Kumar"
+- event: "Navaspurthi 2025"
+
+PROCESS:
+1. Load base_template.png → preserve as immutable background
+2. Detect photo placeholder → circular frame, top-center, 200x200px
+3. Process participant_photo.jpg → detect face, crop to square, resize to 200x200
+4. Composite photo into placeholder with circular mask
+5. Detect name field → below photo, 600px width
+6. Render "RAJESH KUMAR" in Poppins SemiBold, 24pt, white with neon glow
+7. Detect event field → bottom section, 500px width
+8. Render "Navaspurthi 2025" in Inter Medium, 18pt, cyan accent
+9. Merge all layers preserving template integrity
+10. Export as PNG, 1024x640, 300 DPI
+
+OUTPUT:
+- navaspurthi_id_rajesh_kumar.png (complete personalized ID card)
+
+TROUBLESHOOTING
+If photo placeholder is unclear:
+
+Default to top-center position, 25% of card width
+Use standard portrait orientation
+Apply subtle rounded corners (8px radius)
+
+If text field positions are ambiguous:
+
+Name: 60-70% down from top, horizontally centered
+Event: 85-90% down from top, horizontally centered
+
+If template has complex overlays:
+
+Ensure photo layer sits BELOW decorative overlays
+Text should be ABOVE all design elements for visibility
