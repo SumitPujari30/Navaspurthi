@@ -22,7 +22,7 @@ import quiz from '../assets/quiz.png';
 import dumbCharades from '../assets/dumb_charades.png';
 import debate from '../assets/debate.png';
 import instrumental from '../assets/instrumental.jpg';
-import videography from '../assets/videography.jpg';
+import videography from '../assets/Videography.jpg';
 import clayModeling from '../assets/clay_modeling.jpg';
 import cricket from '../assets/cricket.jpg';
 import bestOutOfWaste from '../assets/best_waste.jpg';
