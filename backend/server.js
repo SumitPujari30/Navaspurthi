@@ -156,8 +156,9 @@ async function startServer() {
     }
   }
 
-  // Start Express server
-  app.listen(PORT, async () => {
+  // Start Express server (only if not in serverless environment)
+  if (process.env.VERCEL !== '1') {
+    app.listen(PORT, async () => {
     console.log('='.repeat(60));
     console.log(`✅ Server running on port ${PORT}`);
     console.log(`🌟 Environment: ${process.env.NODE_ENV || 'development'}`);
@@ -201,14 +202,26 @@ async function startServer() {
     } catch (err) {
       console.error('\n❌ Database connectivity check failed:', err.message + '\n');
     }
-  });
+    });
+  } else {
+    console.log('🔷 Running in serverless environment (Vercel)');
+    // Initialize database for serverless
+    await initializeDatabase();
+  }
 }
 
-// Start the server
-startServer().catch((error) => {
-  console.error('\n❌ Failed to start server:', error.message);
-  process.exit(1);
-});
+// Start the server (only in non-serverless environments)
+if (process.env.VERCEL !== '1') {
+  startServer().catch((error) => {
+    console.error('\n❌ Failed to start server:', error.message);
+    process.exit(1);
+  });
+} else {
+  // For Vercel, just initialize database
+  initializeDatabase().catch((error) => {
+    console.error('\n❌ Failed to initialize database:', error.message);
+  });
+}
 
 // Graceful shutdown handlers
 process.on('SIGTERM', async () => {
